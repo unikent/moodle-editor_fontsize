@@ -1,5 +1,4 @@
 YUI.add('moodle-atto_fontsize-button', function (Y, NAME) {
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -32,25 +31,33 @@ YUI.add('moodle-atto_fontsize-button', function (Y, NAME) {
 var sizes = [
         {
             name: '1 (8pt)',
-            size: '8pt'
+            size: '8pt',
+            spacing: '20px'
         }, {
             name: '2 (10pt)',
-            size: '10pt'
+            size: '10pt',
+            spacing: '25px'
         }, {
             name: '3 (12pt)',
-            size: '12pt'
+            size: '12pt',
+            spacing: '30px'
         }, {
             name: '4 (14pt)',
-            size: '14pt'
+            size: '14pt',
+            spacing: '35px'
         }, {
             name: '5 (18pt)',
-            size: '18pt'
+            
+            size: '18pt',
+            spacing: '40px'
         }, {
             name: '6 (24pt)',
-            size: '24pt'
+            size: '24pt',
+            spacing: '45px'
         }, {
             name: '7 (36pt)',
-            size: '36pt'
+            size: '36pt',
+            spacing: '50px'
         }
     ];
 
@@ -59,16 +66,16 @@ Y.namespace('M.atto_fontsize').Button = Y.Base.create('button', Y.M.editor_atto.
         var items = [];
         Y.Array.each(sizes, function(size) {
             items.push({
-                text: '<div style="width: 20px; height: 20px; border: 1px solid #CCC; font-size: ' +
+                text: '<div style="width: 200px; height: ' + size.spacing + '; line-height: ' + size.spacing + ' !important; font-size: ' +
                         size.size +
-                        '"></div>',
+                        '">'+size.name+'</div>',
                 callbackArgs: size.size,
                 callback: this._changeStyle
             });
         });
 
         this.addToolbarMenu({
-            icon: 'e/text_size',
+            icon: 'e/abbr',
             overlayWidth: '4',
             menucolor: '#333333',
             globalItemConfig: {
